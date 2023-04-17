@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_request_form" model="ir.ui.view">
+            <field name="name">purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Request">
+                    <header>
+                        <field name="state" widget="statusbar" clickable="False"/>
+                        <button name="button_cancel" type="object" string="Cancel" states="draft"/>
+                        <button name="button_submit_for_approval" type="object" string="Submit for Approval"
+                                states="draft"/>
+                        <button name="Reset_to_draft" type="object" string="Reset to draft" states="cancel"/>
+                        <button name="button_submit_for_approval_Approve" type="object" string="Approve"
+                                states="to be approved"/>
+                        <button name="button_submit_for_approval_Reject" type="object" string="Reject"
+                                states="to be approved"/>
+                        <button name="send_email_templete" type="object" string="send"
+                                states="approve"/>
+
+
+                        <button name="%(wizard_reject_action)d" type="action" string="Rejection" states="reject"
+                        context="{'default_reject_reason': active_id}"/>
+
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_id"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="description"/>
+                                    <field name="qty"/>
+                                    <field name="cost_price"/>
+                                    <field name="cost_price"/>
+                                    <field name="total"/>
+
+                                </tree>
+                            </field>
+                            <field name="total_price"/>
+                            <field name="reject_reason"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="purchase_request_tree" model="ir.ui.view">
+            <field name="name">purchase.request.tree</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Request">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="purchase_request_action" model="ir.actions.act_window">
+            <field name="name">Purchase Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="doctor_category" name="Purchase Request" parent="purchase.menu_procurement_management"
+                  action="purchase_request_action" sequence="-1"/>
+
+    </data>
+</odoo>
