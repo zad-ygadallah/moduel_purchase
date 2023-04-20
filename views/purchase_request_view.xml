@@ -18,10 +18,13 @@
                                 states="to be approved"/>
                         <button name="send_email_templete" type="object" string="send"
                                 states="approve"/>
-
+                        <button name="button_create_PO" type="object" string="create PO"
+                                states="approve"/>
 
                         <button name="%(wizard_reject_action)d" type="action" string="Rejection" states="reject"
                         context="{'default_reject_reason': active_id}"/>
+
+
 
 
                     </header>

@@ -68,6 +68,16 @@ class PurchaseRequest(models.Model):
             "email_to":"yasser@gmail.com",
         })
 
+    def button_create_PO(self):
+        return {
+            'name': _('New Quotation'),
+            'type': 'ir.actions.act_window',
+            'res_model': 'purchase.order',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+        }
+
 class PurchaseRequestLine(models.Model):
     _name = "purchase.request.line"
 
