@@ -12,6 +12,7 @@
         "views/purchase_request_view.xml",
         "security/ir.model.access.csv",
         'wizards/wizard_view.xml',
-        'views/email_temp.xml'
+        'views/email_temp.xml',
+        'report/report_view.xml'
     ],
 }
