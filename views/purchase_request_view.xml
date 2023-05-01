@@ -25,11 +25,19 @@
 
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_view_order" class="oe_stat_button" icon="fa-pencil-square-o">
+                                <field  string ='Purchase order number' name="num_orders" widget="statinfo" />
+                            </button>
+                        </div>
+
                         <group>
                             <field name="name"/>
+                            <field name="partner_id"/>
                             <field name="user_id"/>
                             <field name="date_start"/>
                             <field name="date_end"/>
+
 
                             <field name="line_ids">
                                 <tree editable="bottom">
@@ -71,6 +79,8 @@
         </record>
         <menuitem id="doctor_category" name="Purchase Request" parent="purchase.menu_procurement_management"
                   action="purchase_request_action" sequence="-1"/>
+
+
 
     </data>
 </odoo>
